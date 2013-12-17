@@ -8,5 +8,6 @@ username = '91_pavan'
 password = ''
 r.login(username, password)
 saved_links = r.user.get_saved(limit=50)
-
+for x in saved_links:
+    print str(x.url)
 
