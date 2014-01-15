@@ -29,7 +29,7 @@ print "91_pavan " + str(count)
 user_agent1 = ('exporting saved links from one username to another username v1.1 by /u/icutyouwithmmyknife')
 r1 = praw.Reddit(user_agent = user_agent1)
 username1 = 'icutyouwithmyknife'
-password1 = 'counterstrike'
+password1 = ''
 r1.login(username1, password1)
 
 saved_links = r1.user.get_saved(limit=None)
