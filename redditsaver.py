@@ -2,7 +2,7 @@ __author__ = 'pavan'
 import praw
 from pprint import pprint
 import traceback
-user_agent = ('exporting saved links from one username to another username v1.1 by /u/91_pavan')
+user_agent = ('exporting saved links from one username to another username v2.0 by /u/91_pavan')
 r = praw.Reddit(user_agent=user_agent)
 username = '91_pavan'
 password = ''
@@ -21,16 +21,17 @@ except Exception, e:
 
 
 #print list
-user_agent1 = ('exporting saved links from one username to another username v1.1 by /u/icutyouwithmmyknife')
+user_agent1 = ('exporting saved links from one username to another username v2.0 by /u/icutyouwithmmyknife')
 r1 = praw.Reddit(user_agent = user_agent1)
 username1 = 'icutyouwithmyknife'
 password1 = ''
 r1.login(username1, password1)
 
 try:
-    for entry in list:
+    for entry in reversed(list):
         submission = r1.get_submission(url=None, submission_id=entry, comment_limit=0, comment_sort=None)
-        submission.unsave()
+	if submission.unsaved:
+	    submission.save()
 except:
     pass
 
